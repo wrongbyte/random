@@ -1,0 +1,1 @@
+Aqui eu estou reescrevendo uma implementação do LZW com comentários p me ajudar a entender oq esse algoritmo faz. Obviamente devo ter interpretado erroneamente partes do código etc., muitas coisas eu só inferi conforme o código, então (se eu voltar a estudar esse assunto em breve) os comentarios vao mudar :P
