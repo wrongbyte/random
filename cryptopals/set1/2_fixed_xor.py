@@ -1,0 +1,1 @@
+# two equal-length buffers, produce their XOR combination
