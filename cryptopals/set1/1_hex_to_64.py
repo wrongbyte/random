@@ -1,5 +1,4 @@
 from base64 import b64encode
-
 def encode_hex_to_64(string):
     return b64encode(bytes.fromhex(string)).decode()
 
