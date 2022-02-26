@@ -15,8 +15,8 @@ def try_keys(encoded_string):
                 string_score +=1
         return string_score
         
-    bytes_array = wrap(encoded_string, 2) # split every two hex letters
-    decimal_string = [int(byte, 16) for byte in bytes_array] # convert to decimal to perform XOR op
+    bytes_array = wrap(encoded_string, 2) # split every two hex letters (every byte)
+    decimal_string = [int(byte, 16) for byte in bytes_array] # convert each byte to decimal form to perform XOR op
 
     for n in range(256): #checks for every possible value for XOR key
         xord_str = [byte ^ n for byte in decimal_string]
@@ -25,7 +25,7 @@ def try_keys(encoded_string):
         if (last_score > greatest_score):
             greatest_score = last_score
             greatest_score_string = xord_ascii
-            
+
     print(greatest_score_string)
 
 try_keys(encoded_str)
