@@ -4,7 +4,7 @@ XOR_key = b"ICE"
 def XOR_repeating_encode(input_string, key):
     xord_output = []
 
-    for i in range(0, len(input_string)):
+    for i in range(len(input_string)):
         xord_output.append(input_string[i] ^ key[i % len(key)])
 
     return bytes(xord_output).hex()
