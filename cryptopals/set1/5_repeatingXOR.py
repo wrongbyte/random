@@ -1,16 +1,12 @@
-input_text = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal"
-XOR_key = "ICE"
+input_text1 = b"Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal"
+XOR_key = b"ICE"
 
 def XOR_repeating_encode(input_string, key):
     xord_output = []
-    decimal_array = [ord(char) for char in input_string]
-    grouped_list = [decimal_array[i:i+ len(key)] for i in range(0, len(decimal_array), len(key))]
 
-    for sublist in grouped_list:
-        for i in range((len(sublist))):
-            xord_char = hex(int(sublist[i]) ^ ord(XOR_key[i]))
-            xord_output.append(str(xord_char)[2:])
+    for i in range(0, len(input_string)):
+        xord_output.append(input_string[i] ^ key[i % len(key)])
 
-    return ('').join(xord_output)
+    return bytes(xord_output).hex()
 
-print(XOR_repeating_encode(input_text, XOR_key))
+print(XOR_repeating_encode(input_text1, XOR_key))
