@@ -1,5 +1,5 @@
 from textwrap import wrap
-encoded_str = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
+encoded_str = b'1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
 
 # check letter frequency to choose the most english-like output, i.e ETAOIN SHRDLU
 # outputs the str with highest score
@@ -13,6 +13,7 @@ def assign_score(output_string):
     return string_score
 
 def XOR_decode(encoded_string):
+    encoded_string = encoded_string.decode()
     last_score = 0
     greatest_score = 0
     greatest_score_string = ''
@@ -30,4 +31,4 @@ def XOR_decode(encoded_string):
 
     return greatest_score_string
 
-# print(XOR_decode(encoded_str))
+print(XOR_decode(encoded_str))
