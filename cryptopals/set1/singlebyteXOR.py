@@ -16,7 +16,6 @@ def XOR_decode(encoded_string):
     encoded_string = encoded_string.decode()
     last_score = 0
     greatest_score = 0
-    greatest_score_string = ''
 
     bytes_array = wrap(encoded_string, 2) # split every two hex letters (every byte)
     decimal_string = [int(byte, 16) for byte in bytes_array] # convert each byte to decimal form to perform XOR op
@@ -27,8 +26,22 @@ def XOR_decode(encoded_string):
         last_score = assign_score(xord_ascii)
         if (last_score > greatest_score):
             greatest_score = last_score
-            greatest_score_string = xord_ascii
+            key = n
 
-    return greatest_score_string
+    return key
+
+#TODO: REFACTOR
+def XOR_decode_bytes(encoded_array):
+    last_score = 0
+    greatest_score = 0
+    for n in range(256): # checks for every possible value for XOR key
+        xord_str = [byte ^ n for byte in encoded_array]
+        xord_ascii = ('').join([chr(b) for b in xord_str])
+        last_score = assign_score(xord_ascii)
+        if (last_score > greatest_score):
+            greatest_score = last_score
+            key = n
+    return key
 
 print(XOR_decode(encoded_str))
+# print(XOR_decode(encoded_str))
