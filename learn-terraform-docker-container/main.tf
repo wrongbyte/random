@@ -1,4 +1,5 @@
 terraform {
+  # terraform providers are basically plugins that enable interactions with a specific API. We declare them here to tell terraform which services it needs to interact with. 
   required_providers {
     docker = {
       source  = "kreuzwerker/docker"
